@@ -10,6 +10,7 @@ namespace AT_BASH_project
     {
         static void Main(string[] args)
         {
+            Console.WriteLine( "itamar amrami");
         }
     }
 }
