@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -36,18 +37,27 @@ namespace AT_BASH_project
             return decryptString;
         }
 
-        static int SumOfWord(string[] str)
+
+        static (string, int) SumOfWord(string str)
         {
-            string[] strings = new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] strings = new string[] { "bomb", "nukhba", "fighter", "rocket", "secret", "bombs", "nukhbas", "fighters", "rockets", "secrets" };
             int count = 0;
-            foreach (string s in str)
+            string[] words = str.Split();
+            string result = "";
+            foreach (string word in words)
             {
-                if (strings.Contains(s))
+                string wordLower = word.ToLower();
+                if (strings.Contains(wordLower))
                 {
                     count++;
+                    if (!result.Contains(wordLower))
+                    {
+                        result += wordLower + " ";
+                    }
                 }
             }
-            return count;
+
+            return (result, count);
         }
 
         static string showFinalMassage((string words, int sumOfDangerousWord) massage)
@@ -55,7 +65,7 @@ namespace AT_BASH_project
             string woringLevel;
             string words = massage.words;
             int sumOfDangerousWord = massage.sumOfDangerousWord;
-            if (sumOfDangerousWord < 5)
+            if (sumOfDangerousWord < 6)
             {
                 woringLevel = "WARNING";
             }
@@ -70,10 +80,11 @@ namespace AT_BASH_project
             return $"{words} {woringLevel}";
         }
         static void Main(string[] args)
-
         {
             string decryptString = decrypt("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. Erxglib rh mvzi. Hgzb ivzwb.");
-
+            (string words, int sumOfDangerousWord) massage = SumOfWord(decryptString);
+            Console.WriteLine(showFinalMassage(massage));
+            Console.WriteLine(decryptString);
         }
     }
 }
