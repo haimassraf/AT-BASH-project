@@ -35,16 +35,10 @@ namespace AT_BASH_project
             }
             return decryptString;
         }
-        static void Main(string[] args)
-
-        {
-            string decryptString = decrypt("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. Erxglib rh mvzi. Hgzb ivzwb.");
-           
-        }
 
         static int SumOfWord(string[] str)
         {
-            string[] strings =new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] strings = new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" };
             int count = 0;
             foreach (string s in str)
             {
@@ -54,9 +48,32 @@ namespace AT_BASH_project
                 }
             }
             return count;
-
-           
         }
-        
+
+        static string showFinalMassage((string words, int sumOfDangerousWord) massage)
+        {
+            string woringLevel;
+            string words = massage.words;
+            int sumOfDangerousWord = massage.sumOfDangerousWord;
+            if (sumOfDangerousWord < 5)
+            {
+                woringLevel = "WARNING";
+            }
+            else if (sumOfDangerousWord < 11)
+            {
+                woringLevel = "DANGER!";
+            }
+            else
+            {
+                woringLevel = "ULTRA ALERT!";
+            }
+            return $"{words} {woringLevel}";
+        }
+        static void Main(string[] args)
+
+        {
+            string decryptString = decrypt("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. Erxglib rh mvzi. Hgzb ivzwb.");
+
+        }
     }
 }
