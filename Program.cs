@@ -11,9 +11,7 @@ namespace AT_BASH_project
         static void Main(string[] args)
 
         {
-            Console.WriteLine( "itamar amrami");
-            int x = 7;
-            Console.WriteLine($"The number is: {x}");
+            
         }
     }
 }
