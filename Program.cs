@@ -39,16 +39,20 @@ namespace AT_BASH_project
 
         {
             string decryptString = decrypt("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. Erxglib rh mvzi. Hgzb ivzwb.");
-           
+            int Amount_of_dangerous_words= SumOfWord(decryptString);
+            Console.WriteLine( Amount_of_dangerous_words);
+
         }
 
-        static int SumOfWord(string[] str)
+        static int SumOfWord(string str)
         {
-            string[] strings =new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            string[] strings =new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" ,"bombs", "nukhbas", "fighters", "rockets", "secrets" };
             int count = 0;
-            foreach (string s in str)
+            string[] words = str.Split();
+            foreach (string word in words)
             {
-                if (strings.Contains(s))
+               string wordLower = word.ToLower();
+                if (strings.Contains(wordLower))
                 {
                     count++;
                 }
