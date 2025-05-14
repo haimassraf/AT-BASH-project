@@ -39,6 +39,24 @@ namespace AT_BASH_project
 
         {
             string decryptString = decrypt("Lfi ulixvh ziv kivkzirmt uli z nzqli zggzxp lm gsv Arlmrhg vmvnb.Gsv ilxpvg fmrgh ziv ivzwb zmw dzrgrmt uli gsv hrtmzo. Ylnyh szev yvvm kozxvw mvzi pvb olxzgrlmh. Mfpsyz urtsgvih ziv hgzmwrmt yb uli tilfmw rmurogizgrlm. Gsv zggzxp droo yv hfwwvm zmw hgilmt -- gsvb dlm’g hvv rg xlnrmt. Dv nfhg hgzb srwwvm zmw pvvk gsv kozm hvxivg fmgro gsv ozhg nlnvmg. Erxglib rh mvzi. Hgzb ivzwb.");
+           
         }
+
+        static int SumOfWord(string[] str)
+        {
+            string[] strings =new string[] { "bomb", "nukhba", "fighter", "rocket", "secret" };
+            int count = 0;
+            foreach (string s in str)
+            {
+                if (strings.Contains(s))
+                {
+                    count++;
+                }
+            }
+            return count;
+
+           
+        }
+        
     }
 }
